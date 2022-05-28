@@ -1,0 +1,16 @@
+package com.androiddevs.mvvmnewsapp.Repository
+
+import androidx.room.Query
+import com.androiddevs.mvvmnewsapp.api.RetrofitInstance
+import com.androiddevs.mvvmnewsapp.db.ArticleDatabase
+
+class NewsRepository(val db:ArticleDatabase) {
+
+
+    suspend fun getBreakingNews(countryCode: String, pageNumber : Int)=
+        RetrofitInstance.api.getBreakingNews(countryCode,pageNumber)
+
+    suspend fun searchForNews(searchQuery: String, pageNumber: Int)=
+        RetrofitInstance.api.searchForNews(searchQuery, pageNumber)
+
+}
